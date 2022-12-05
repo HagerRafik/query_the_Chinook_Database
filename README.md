@@ -17,6 +17,6 @@ InvoiceLine?
 
 ## steps:
 1- open the "chinook.db" via SQLite DB browser </br>
-> 2- use the queries provided in "queries.txt"
-> 3- download the data extracted from the DB as a .csv file
-> 4- visualizing the extracted data using Microsoft Excel
+2- use the queries provided in "queries.txt" </br>
+3- download the data extracted from the DB as a .csv file </br>
+4- visualizing the extracted data using Microsoft Excel </br>
