@@ -1,0 +1,68 @@
+/*query 1 - which artist has earned the most according to the InvoiceLine?*/
+
+SELECT a.ArtistId, a.Name, sum(l.UnitPrice)
+FROM InvoiceLine l
+JOIN Track t
+ON t.TrackId = l.TrackId
+JOIN Album b
+ON b.AlbumId = t.AlbumId
+JOIN Artist a
+ON a.ArtistId = b.ArtistId
+GROUP BY 1, 2
+ORDER BY 3 DESC
+limit 10
+
+/*query 2 - artists with the most amount of albums created */
+SELECT a.name, count(b.title)
+FROM Artist a
+JOIN Album b
+on a.ArtistId =b.ArtistId
+GROUP by 1
+order by 2 DESC
+limit 10
+
+/*query 3 - the most sold genre */
+
+SELECT g.Name, sum(l.UnitPrice)
+FROM Genre g
+JOIN Track t
+ON g.GenreId = t.GenreId
+JOIN InvoiceLine l
+ON l.TrackId = t.TrackId
+GROUP BY 1
+ORDER BY 2 DESC
+
+
+/*query 4 - most popular gener per country */
+
+with genres as 
+(SELECT namee, MAX(num) largest
+	from 
+		(SELECT c.country AS namee, g.Name,count(g.Name) AS num
+		FROM Genre g
+		JOIN Track t 
+		ON g.GenreId = t.GenreId
+		JOIN InvoiceLine l
+		ON l.TrackId = t.TrackId
+		JOIN Invoice i
+		ON i.InvoiceId = l.InvoiceId
+		JOIN Customer c
+		on c.CustomerId = i.CustomerId
+		GROUP by 1,2)t1
+	GROUP BY 1)
+SELECT c.country AS namee, g.Name,count(g.Name) AS num
+FROM Genre g
+JOIN Track t 
+ON g.GenreId = t.GenreId
+JOIN InvoiceLine l
+ON l.TrackId = t.TrackId
+JOIN Invoice i
+ON i.InvoiceId = l.InvoiceId
+JOIN Customer c
+on c.CustomerId = i.CustomerId
+JOIN genres gg
+on gg.Namee = c.Country
+GROUP BY 1, 2
+HAVING gg.largest = count(g.name) 
+ORDER BY 3 DESC
+LIMIT 20
