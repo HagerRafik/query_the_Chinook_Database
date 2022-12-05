@@ -10,7 +10,7 @@ JOIN Artist a
 ON a.ArtistId = b.ArtistId
 GROUP BY 1, 2
 ORDER BY 3 DESC
-limit 10
+limit 10;
 
 /*query 2 - artists with the most amount of albums created */
 SELECT a.name, count(b.title)
@@ -19,7 +19,7 @@ JOIN Album b
 on a.ArtistId =b.ArtistId
 GROUP by 1
 order by 2 DESC
-limit 10
+limit 10;
 
 /*query 3 - the most sold genre */
 
@@ -30,7 +30,7 @@ ON g.GenreId = t.GenreId
 JOIN InvoiceLine l
 ON l.TrackId = t.TrackId
 GROUP BY 1
-ORDER BY 2 DESC
+ORDER BY 2 DESC;
 
 
 /*query 4 - most popular gener per country */
@@ -65,4 +65,4 @@ on gg.Namee = c.Country
 GROUP BY 1, 2
 HAVING gg.largest = count(g.name) 
 ORDER BY 3 DESC
-LIMIT 20
+LIMIT 20;
