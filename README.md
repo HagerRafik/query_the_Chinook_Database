@@ -14,7 +14,7 @@ InvoiceLine? </br>
 1- open the "chinook.db" via SQLite DB browser </br>
 2- use the queries provided in "queries.txt" </br>
 3- download the data extracted from the DB as a .csv file </br>
-4- visualizing the extracted data using Microsoft Excel </br>
+4- visualizing the extracted data using Microsoft Excel, you can view my visualiztions via </br>
 
 
 ### the schema for the Chinook Database is provided below. You can see the columns that link tables together via the arrows.
