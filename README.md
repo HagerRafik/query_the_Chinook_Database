@@ -4,11 +4,11 @@ In this project, we'll query the Chinook Database. The Chinook Database holds in
 
 ## we'll be answering the following questions:
 
->which artist has earned the most according to the
+> - which artist has earned the most according to the
 InvoiceLine? </br>
->who are the artists with the most amount of albums created?</br>
->what is the most sold genre? </br>
->what is the most popular genre per country? </br>
+> - who are the artists with the most amount of albums created?</br>
+> - what is the most sold genre? </br>
+> - what is the most popular genre per country? </br>
 
 ## steps:
 1- open the "chinook.db" via SQLite DB browser </br>
